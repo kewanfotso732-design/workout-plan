@@ -1,0 +1,116 @@
+
+<h2 class="sr-only">Aesthetic Build: an 8-week Push / Pull / Legs gym program, 5 days per week, for an 18-year-old starting at 63 kg</h2>
+
+<div style="padding:0.5rem 0 2rem;">
+  <div style="margin-bottom:1.5rem;">
+    <p style="margin:0 0 4px;font-size:11px;letter-spacing:0.08em;color:var(--color-text-tertiary);font-weight:500;">8-week program · gym phase · June 2026</p>
+    <p style="margin:0 0 2px;font-size:22px;font-weight:500;color:var(--color-text-primary);letter-spacing:-0.01em;">Aesthetic Build</p>
+    <p style="margin:0;font-size:13px;color:var(--color-text-secondary);">Push / Pull / Legs · 5 days/week · 63 kg → goal physique</p>
+  </div>
+  <div id="dtabs" style="display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;margin-bottom:1.25rem;"></div>
+  <div id="dcontent" style="margin-bottom:2rem;"></div>
+  <div id="rulesec" style="border-top:0.5px solid var(--color-border-tertiary);padding-top:1.5rem;"></div>
+  <div id="nutsec" style="border-top:0.5px solid var(--color-border-tertiary);padding-top:1.5rem;margin-top:1.5rem;padding-bottom:1rem;"></div>
+</div>
+
+<script>
+const days=[
+  {abbr:'Mon',name:'Push A',sub:'Chest focus',c:'success',
+   ex:[['Barbell bench press',4,'6–8','Start lighter than expected — form first'],
+       ['Incline dumbbell press',3,'8–12','Upper chest builds the "shelf" look'],
+       ['Cable fly (low → high)',3,'12–15','Squeeze hard at center of movement'],
+       ['Dumbbell lateral raise',4,'12–20','Slow and controlled — this builds shoulder width'],
+       ['Rope tricep pushdown',3,'12–15','Elbows fixed at sides, full extension at bottom'],
+       ['Overhead tricep extension',3,'12–15','Long head stretch = full development']]},
+  {abbr:'Tue',name:'Pull A',sub:'Back width',c:'info',
+   ex:[['Barbell bent-over row',4,'6–8','Hinge 45°, control the weight on the way down'],
+       ['Wide-grip lat pulldown',4,'8–12','Pull elbows to hips — not chin to bar'],
+       ['Seated cable row (wide grip)',3,'10–12','Chest up, full retraction at peak'],
+       ['Single-arm dumbbell row',3,'10–12 ea','Full ROM — lats love the stretch'],
+       ['Face pull (rope cable)',3,'15–20','Rear delts + keeps shoulders healthy long-term'],
+       ['EZ bar curl',3,'8–12','2 s up / 3 s down — slow eccentric builds size'],
+       ['Hammer curl',3,'12–15 ea','Brachialis = arm thickness']]},
+  {abbr:'Wed',name:'Legs + Core',sub:'Full lower body',c:'warning',
+   ex:[['Barbell squat',4,'6–8','Priority: master this. Start light, full depth'],
+       ['Romanian deadlift',3,'8–12','Hip hinge — feel the hamstring stretch at bottom'],
+       ['Leg press',3,'12–15','High and wide foot = more glutes + hamstrings'],
+       ['Lying leg curl',3,'10–15','Hamstring isolation'],
+       ['Leg extension',3,'12–15','Quad detail finisher'],
+       ['Standing calf raise',4,'12–20','Full ROM — pause at the bottom stretch'],
+       ['Cable crunch',3,'15–20','Weighted abs grow faster than bodyweight crunches'],
+       ['Lying leg raise',3,'15–20','Lower abs focus'],
+       ['Plank',3,'45–60 s','Posterior pelvic tilt, brace hard throughout']]},
+  {abbr:'Thu',name:'Push B',sub:'Shoulder focus',c:'success',
+   ex:[['Seated dumbbell shoulder press',4,'8–10','Or barbell OHP — overhead pressing is king for delts'],
+       ['Incline bench press',3,'8–12','Slightly different angle to Monday'],
+       ['Cable lateral raise',4,'15–20','Cable = constant tension throughout the rep'],
+       ['Reverse pec deck (rear delt)',3,'15–20','Essential for 3D shoulders + good posture'],
+       ['Close-grip bench press',3,'8–12','Main tricep compound'],
+       ['EZ bar skull crusher',3,'10–12','Lower bar behind head for the full stretch']]},
+  {abbr:'Fri',name:'Pull B',sub:'Arms focus',c:'info',
+   ex:[['Pull-ups / assisted pull-up',4,'6–10','Work toward full bodyweight over coming weeks'],
+       ['Chest-supported dumbbell row',3,'10–12','No body English — pure back'],
+       ['Straight-arm cable pulldown',3,'12–15','Lat isolation without bicep involvement'],
+       ['Incline dumbbell curl',3,'10–12','Best exercise for bicep peak (long head stretch)'],
+       ['Preacher curl (EZ bar)',3,'10–12','Short head focus = arm width'],
+       ['Cable curl',3,'12–15','Constant tension pump finisher'],
+       ['Reverse curl',2,'12–15','Forearms + brachialis thickness']]},
+  {abbr:'Sat',name:'Rest',sub:'Active recovery',c:'neutral',rest:true},
+  {abbr:'Sun',name:'Rest',sub:'Full recovery',c:'neutral',rest:true}
+];
+const rules=[
+  ['Progressive overload — the only rule that matters','Complete all sets at the top of the rep range → add weight next session. Upper body: +2.5 kg. Lower body: +5 kg. This is the mechanism of growth. Every single session.'],
+  ['Track every workout','Write down every exercise, weight, set, and rep after each session. No tracking = no direction. Use the Hevy or Strong app.'],
+  ['Warm-up protocol','5 min light cardio + 2 progressively heavier warm-up sets before your first compound each day. Cold muscles = injuries.'],
+  ['Form over ego',"You're 18 and learning new movements. Technique errors built now compound for years. A perfect rep at lower weight beats a sloppy rep at higher weight."],
+  ['Deload after week 8','Drop all working weights to ~60% for one full week. You\'ll come back measurably stronger. Skipping deloads leads to plateaus and burnout.'],
+  ['Sleep = growth hormone',"Muscles don't grow during training — they grow during sleep. 8 hours minimum every night. The most underrated variable in the plan."]
+];
+const stats=[
+  ['Daily calories','2,950','Lean bulk ✓'],
+  ['Protein / day','150 g+','2.4 g/kg minimum'],
+  ['Current weight','63 kg','18 years old'],
+  ['Target weight','~72 kg','Est. 18+ months']
+];
+const tips=[
+  ['Protein is the priority','Hit at least 150 g daily. Chicken, eggs, tuna, Greek yogurt, cottage cheese, whey if needed. Every meal should contain a protein source.'],
+  ['Carbs are fuel, not the enemy',"Your 2,950 cal/day is a solid lean bulk — keep it. Eat carbs before training (rice, oats, banana). Refuel within 1 hour post-training."],
+  ['Hydration','3 L+ of water every day. Dehydration directly reduces strength performance and slows recovery.'],
+  ['Realistic timeline','The goal physique requires significant muscle mass — likely 70–73 kg lean. Expect 1–2 kg of lean muscle per month as a natural beginner. That physique = 18–24 months of consistent work.']
+];
+
+let act=0;
+function col(c){
+  const m={success:{bg:'var(--color-background-success)',tx:'var(--color-text-success)',bd:'var(--color-border-success)'},info:{bg:'var(--color-background-info)',tx:'var(--color-text-info)',bd:'var(--color-border-info)'},warning:{bg:'var(--color-background-warning)',tx:'var(--color-text-warning)',bd:'var(--color-border-warning)'},neutral:{bg:'var(--color-background-secondary)',tx:'var(--color-text-tertiary)',bd:'var(--color-border-tertiary)'}};
+  return m[c]||m.neutral;
+}
+function badge(c,text){
+  const{bg,tx}=col(c);
+  return `<span style="background:${bg};color:${tx};padding:2px 8px;border-radius:var(--border-radius-md);font-size:11px;font-weight:500;white-space:nowrap;">${text}</span>`;
+}
+function renderTabs(){
+  document.getElementById('dtabs').innerHTML=days.map((d,i)=>{
+    const{bg,tx,bd}=col(d.c);const isA=i===act;
+    return `<button onclick="go(${i})" style="flex-shrink:0;padding:7px 14px;border-radius:var(--border-radius-md);cursor:pointer;font-size:12px;font-weight:500;border:0.5px solid ${isA?bd:'var(--color-border-tertiary)'};background:${isA?bg:'transparent'};color:${isA?tx:'var(--color-text-tertiary)'};">${d.abbr}</button>`;
+  }).join('');
+}
+function renderContent(){
+  const d=days[act];const el=document.getElementById('dcontent');
+  if(d.rest){
+    el.innerHTML=`<div style="padding:2rem;text-align:center;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);border:0.5px solid var(--color-border-tertiary);"><i class="ti ti-moon" style="font-size:28px;color:var(--color-text-tertiary);" aria-hidden="true"></i><p style="font-size:15px;font-weight:500;margin:8px 0 4px;color:var(--color-text-primary);">Rest & grow</p><p style="font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.6;">Muscles grow outside the gym.<br>Sleep 8 h+, hit your protein, stay hydrated.</p></div>`;
+    return;
+  }
+  const rows=d.ex.map(([name,sets,reps,note],i)=>`<div style="display:flex;align-items:center;padding:11px 14px;gap:10px;${i<d.ex.length-1?'border-bottom:0.5px solid var(--color-border-tertiary);':''}"><span style="font-size:11px;color:var(--color-text-tertiary);font-weight:500;width:18px;flex-shrink:0;">${String(i+1).padStart(2,'0')}</span><div style="flex:1;min-width:0;"><p style="margin:0 0 1px;font-size:13px;font-weight:500;color:var(--color-text-primary);">${name}</p><p style="margin:0;font-size:11px;color:var(--color-text-tertiary);line-height:1.4;">${note}</p></div>${badge(d.c,sets+'×'+reps)}</div>`).join('');
+  el.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;"><div><p style="margin:0 0 2px;font-size:18px;font-weight:500;color:var(--color-text-primary);">${d.name}</p><p style="margin:0;font-size:13px;color:var(--color-text-secondary);">${d.sub}</p></div>${badge(d.c,d.abbr)}</div><div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin-bottom:12px;">${rows}</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"><div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;border:0.5px solid var(--color-border-tertiary);"><p style="margin:0 0 2px;font-size:11px;color:var(--color-text-tertiary);font-weight:500;">Compounds</p><p style="margin:0;font-size:15px;font-weight:500;color:var(--color-text-primary);">2–3 min rest</p></div><div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 14px;border:0.5px solid var(--color-border-tertiary);"><p style="margin:0 0 2px;font-size:11px;color:var(--color-text-tertiary);font-weight:500;">Isolation</p><p style="margin:0;font-size:15px;font-weight:500;color:var(--color-text-primary);">60–90 s rest</p></div></div>`;
+}
+function renderRules(){
+  document.getElementById('rulesec').innerHTML='<p style="margin:0 0 1rem;font-size:16px;font-weight:500;color:var(--color-text-primary);">Training principles</p>'+rules.map(([t,b])=>`<div style="padding:11px 0;border-bottom:0.5px solid var(--color-border-tertiary);"><p style="margin:0 0 3px;font-size:13px;font-weight:500;color:var(--color-text-primary);">${t}</p><p style="margin:0;font-size:12px;color:var(--color-text-secondary);line-height:1.6;">${b}</p></div>`).join('');
+}
+function renderNutrition(){
+  const sc=stats.map(([l,v,n])=>`<div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;"><p style="margin:0 0 4px;font-size:11px;color:var(--color-text-tertiary);font-weight:500;">${l}</p><p style="margin:0 0 2px;font-size:20px;font-weight:500;color:var(--color-text-primary);">${v}</p><p style="margin:0;font-size:11px;color:var(--color-text-tertiary);">${n}</p></div>`).join('');
+  const tr=tips.map(([t,b])=>`<div style="padding:11px 0;border-bottom:0.5px solid var(--color-border-tertiary);"><p style="margin:0 0 3px;font-size:13px;font-weight:500;color:var(--color-text-primary);">${t}</p><p style="margin:0;font-size:12px;color:var(--color-text-secondary);line-height:1.6;">${b}</p></div>`).join('');
+  document.getElementById('nutsec').innerHTML=`<p style="margin:0 0 1rem;font-size:16px;font-weight:500;color:var(--color-text-primary);">Nutrition</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:1.25rem;">${sc}</div>${tr}`;
+}
+function go(idx){act=idx;renderTabs();renderContent();}
+renderTabs();renderContent();renderRules();renderNutrition();
+</script>
